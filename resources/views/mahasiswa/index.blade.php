@@ -40,9 +40,9 @@ Selvi Riska Nisa
               <th>No</th>
               <th>Nama</th>
               <th>NRP</th>
+              <th>Kelas</th>
               <th>Email</th>
               <th>No HP</th>
-              <th>Alamat</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -52,9 +52,9 @@ Selvi Riska Nisa
               <td>{{ $loop->iteration }}</td>
               <td>{{ $mhs->nama }}</td>
               <td>{{ $mhs->nrp }}</td>
+              <td>{{ $mhs->kelas }}</td>
               <td>{{ $mhs->email }}</td>
               <td>{{ $mhs->no_hp }}</td>
-              <td>{{ $mhs->alamat }}</td>
               <td>
                 <a href="{{ route('mahasiswa.edit', $mhs->id) }}" class="btn btn-warning btn-sm">Edit</a>
                 <form action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">

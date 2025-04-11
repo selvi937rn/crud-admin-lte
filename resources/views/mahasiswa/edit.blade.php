@@ -46,27 +46,27 @@ Selvi Riska Nisa
               <label for="nama">Nama</label>
               <input type="text" class="form-control" name="nama" id="nama" value="{{ $mahasiswa->nama }}" required>
           </div>
-      
+
           <div class="form-group mb-2">
               <label for="nrp">NRP</label>
               <input type="text" class="form-control" name="nrp" id="nrp" value="{{ $mahasiswa->nrp }}" required>
           </div>
-      
+
+          <div class="form-group mb-2">
+              <label for="kelas">Kelas</label>
+              <input type="text" class="form-control" name="kelas" id="kelas" value="{{ $mahasiswa->kelas }}" required>
+          </div>
+
           <div class="form-group mb-2">
               <label for="email">Email</label>
               <input type="email" class="form-control" name="email" id="email" value="{{ $mahasiswa->email }}" required>
           </div>
-      
+
           <div class="form-group mb-2">
               <label for="no_hp">No HP</label>
               <input type="text" class="form-control" name="no_hp" id="no_hp" value="{{ $mahasiswa->no_hp }}" required>
           </div>
-      
-          <div class="form-group mb-2">
-              <label for="alamat">Alamat</label>
-              <input type="text" class="form-control" name="alamat" id="alamat" value="{{ $mahasiswa->alamat }}" required>
-          </div>
-      
+
           <button class="btn btn-primary" type="submit">Update</button>
         </form>
       </div>

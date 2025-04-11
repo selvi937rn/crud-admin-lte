@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nrp')->unique();
+            $table->string('kelas');
             $table->string('email')->unique();
             $table->string('no_hp');
-            $table->text('alamat');
             $table->timestamps();
         });
     }
