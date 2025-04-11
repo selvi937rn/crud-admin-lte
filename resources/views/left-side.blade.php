@@ -256,10 +256,10 @@
           </ul> --}}
         </li>
         <li class="nav-item">
-          <a href="mahasiswa/create" class="nav-link">
+          <a href="/buku" class="nav-link">
             <i class="nav-icon fas fa-edit"></i>
             <p>
-              Forms
+              Buku
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>

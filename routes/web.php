@@ -8,3 +8,5 @@ use Illuminate\Support\Facades\Route;
 Route::resource('home', HomeController::class);
 
 Route::resource('/mahasiswa', MahasiswaController::class);
+
+Route::resource('/buku', App\Http\Controllers\BukuController::class);
