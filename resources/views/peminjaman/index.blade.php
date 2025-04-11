@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-Halaman Buku
+Halaman Peminjaman
 @endsection
 
 @section('username')
@@ -15,12 +15,12 @@ Selvi Riska Nisa
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Buku</h1>
+          <h1>Data Peminjaman</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Data Buku</li>
+            <li class="breadcrumb-item active">Data Peminjaman</li>
           </ol>
         </div>
       </div>
@@ -30,30 +30,38 @@ Selvi Riska Nisa
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Daftar Buku</h3>
-        <a href="{{ route('buku.create') }}" class="btn btn-success float-right">Tambah Buku</a>
+        <h3 class="card-title">Daftar Peminjaman</h3>
+        <a href="{{ route('peminjaman.create') }}" class="btn btn-success float-right">Tambah Peminjaman</a>
       </div>
       <div class="card-body">
+        @if(session('success'))
+          <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
         <table class="table table-bordered">
           <thead>
             <tr>
               <th>No</th>
-              <th>Kode</th>
               <th>Nama Buku</th>
-              <th>Stok</th>
+              <th>Nama Mahasiswa</th>
+              <th>NRP</th>
+              <th>Tanggal Pinjam</th>
+              <th>Tanggal Kembali</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($buku as $bk)
+            @foreach($peminjaman as $pmj)
             <tr>
               <td>{{ $loop->iteration }}</td>
-              <td>{{ $bk->code }}</td>
-              <td>{{ $bk->nama }}</td>
-              <td>{{ $bk->stok }}</td>
+              <td>{{ $pmj->nama_buku }}</td>
+              <td>{{ $pmj->nama_mahasiswa }}</td>
+              <td>{{ $pmj->nrp_mahasiswa }}</td>
+              <td>{{ $pmj->tanggal_pinjam }}</td>
+              <td>{{ $pmj->tanggal_kembali ?? '-' }}</td>
               <td>
-                <a href="{{ route('buku.edit', $bk->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                <form action="{{ route('buku.destroy', $bk->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus buku ini?');">
+                <a href="{{ route('peminjaman.edit', $pmj->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{{ route('peminjaman.destroy', $pmj->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data peminjaman ini?');">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -61,6 +69,11 @@ Selvi Riska Nisa
               </td>
             </tr>
             @endforeach
+            @if($peminjaman->isEmpty())
+              <tr>
+                <td colspan="7" class="text-center">Belum ada data peminjaman.</td>
+              </tr>
+            @endif
           </tbody>
         </table>
       </div>
